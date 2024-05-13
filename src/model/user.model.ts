@@ -19,7 +19,7 @@ const MessageSchema: Schema<Message> = new Schema({
 
 export interface User extends Document{
     username: String;
-    email: Date;
+    email: String;
     password:String;
     verifyCode: String;
     verifyCodeExpiry: Date;
@@ -37,14 +37,14 @@ const UserSchema: Schema<User> = new Schema({
         unique: true
     },
     email: {
-        type: Date,
+        type: String,
         required: [true, "Email is required"],
         unique: true,
         match: [/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/
         , 'please use a valid email address']
     },
     password: {
-        type: Date,
+        type: String,
         required: [true, "Password is required"],
     },
     verifyCode:{
