@@ -3,13 +3,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import {useForm } from "react-hook-form"
 import Link from "next/link"
 import * as z from 'zod'
-import { useEffect, useState } from "react"
-import { useDebounceCallback } from 'usehooks-ts'
+import { useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
-import { signUpSchema } from "@/schemas/signUpSchema"
-import axios, {AxiosError} from "axios"
-import { ApiResponse } from "@/types/ApiResponse"
 import { Form,
   FormControl,
   FormField,
@@ -113,7 +109,7 @@ const page = () => {
         <div className="text-center mt-4">
           <p>
             Don't have an account?{' '}
-            <Link href={"/signin"} className="text-blue-600 hover:text-blue-800">Sign In</Link>
+            <Link href={"/signup"} className="text-blue-600 hover:text-blue-800">Sign Up</Link>
           </p>
         </div>
       </div>
