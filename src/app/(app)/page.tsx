@@ -62,7 +62,7 @@ export default function Home() {
 
 
       <footer className="text-center p-4 md:p-6 bg-black text-white">
-        © 2023 True Feedback. All rights reserved.
+        © 2023 Anonymous opinions. All rights reserved.
       </footer>
     </>
   );
