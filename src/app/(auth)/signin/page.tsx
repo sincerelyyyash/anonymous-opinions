@@ -56,8 +56,8 @@ const page = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-black/[0.96]">
+      <div className="w-full max-w-md p-8 space-y-8 border rounded-xl shadow-md">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
             Welcome back
@@ -95,7 +95,7 @@ const page = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting} >
+        <Button type="submit" disabled={isSubmitting} className="border rounded-xl">
           {
             isSubmitting ? (
               <>
@@ -109,7 +109,7 @@ const page = () => {
         <div className="text-center mt-4">
           <p>
             Don't have an account?{' '}
-            <Link href={"/signup"} className="text-blue-600 hover:text-blue-800">Sign Up</Link>
+            <Link href={"/signup"} className="text-blue-600 hover:text-blue-600">Sign Up</Link>
           </p>
         </div>
       </div>

@@ -86,8 +86,8 @@ const page = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="w-full max-w-md p-8 space-y-8 bg-black/[0.96] antialiased border border-white rounded-xl">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
             Join Anonymous Opinions
@@ -147,7 +147,7 @@ const page = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting} >
+        <Button type="submit" disabled={isSubmitting} className="border rounded-xl" >
           {
             isSubmitting ? (
               <>
@@ -161,7 +161,7 @@ const page = () => {
         <div className="text-center mt-4">
           <p>
             Already a member?{' '}
-            <Link href={"/signin"} className="text-blue-600 hover:text-blue-800">Sign In</Link>
+            <Link href={"/signin"} className="text-blue-600 hover:text-blue-600">Sign In</Link>
           </p>
         </div>
       </div>
