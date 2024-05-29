@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Mail } from 'lucide-react'; 
+import { Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Autoplay from 'embla-carousel-autoplay';
 import messages from '@/messages.json';
@@ -19,14 +19,13 @@ export default function Home() {
   return (
     <>
       {/* Main content */}
-      <AuroraBackground>
-      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full">
+      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen">
         <section className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-5xl font-bold">
             Dive into the World of Anonymous opinions
           </h1>
           <p className="mt-3 md:mt-4 text-base md:text-lg">
-          Anonymous opinions - Where your identity remains a secret.
+            Anonymous opinions - Where your identity remains a secret.
           </p>
         </section>
 
@@ -56,9 +55,8 @@ export default function Home() {
             ))}
           </CarouselContent>
         </Carousel>
-       
+
       </main>
-      </AuroraBackground>
 
 
       <footer className="text-center p-4 md:p-6 bg-black text-white">
