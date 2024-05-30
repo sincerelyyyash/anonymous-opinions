@@ -1,5 +1,7 @@
 'use client';
 
+
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -19,6 +21,7 @@ export default function Home() {
   return (
     <>
       {/* Main content */}
+
       <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen">
         <section className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-5xl font-bold">
@@ -55,7 +58,6 @@ export default function Home() {
             ))}
           </CarouselContent>
         </Carousel>
-
       </main>
 
 
