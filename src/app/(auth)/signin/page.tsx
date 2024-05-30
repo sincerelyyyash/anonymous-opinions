@@ -1,17 +1,19 @@
 'use client'
 import { zodResolver } from "@hookform/resolvers/zod"
-import {useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import Link from "next/link"
 import * as z from 'zod'
 import { useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
-import { Form,
+import {
+  Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage, } from "@/components/ui/form"
+  FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
@@ -22,10 +24,10 @@ import { signIn } from "next-auth/react"
 
 const page = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast} = useToast()
+  const { toast } = useToast()
   const router = useRouter()
 
-  const form  = useForm<z.infer<typeof signInSchema>>({
+  const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
       identifier: '',
@@ -36,13 +38,13 @@ const page = () => {
 
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
-    const result = await signIn('credentials',{
+    const result = await signIn('credentials', {
       redirect: false,
       identifier: data.identifier,
       password: data.password
     })
 
-    if(result?.error){
+    if (result?.error) {
       toast({
         title: "Login failed",
         description: "Incorrect username or password",
@@ -50,7 +52,7 @@ const page = () => {
       })
     }
 
-    if(result?.url){
+    if (result?.url) {
       router.replace('/dashboard')
     }
   }
@@ -69,41 +71,41 @@ const page = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="identifier"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>E-mail or Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter E-mail/ Username" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter password" type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={isSubmitting} className="border rounded-xl">
-          {
-            isSubmitting ? (
-              <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin"/> Please Wait
-              </>
-            ) : ("Sign In")
-          }
-        </Button>
+            <FormField
+              control={form.control}
+              name="identifier"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>E-mail or Username</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter E-mail/ Username" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter password" type="password" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" disabled={isSubmitting} className="border rounded-xl">
+              {
+                isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait
+                  </>
+                ) : ("Sign In")
+              }
+            </Button>
           </form>
         </Form>
         <div className="text-center mt-4">
@@ -117,4 +119,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page  
