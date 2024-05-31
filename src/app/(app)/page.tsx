@@ -9,7 +9,7 @@ import { Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Autoplay from 'embla-carousel-autoplay';
 import messages from '@/messages.json';
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 import {
   Carousel,
@@ -58,6 +58,7 @@ export default function Home() {
             ))}
           </CarouselContent>
         </Carousel>
+        <BackgroundBeams />
       </main>
 
 
