@@ -110,8 +110,8 @@ const Page = () => {
         </Form>
         <div className="text-center mt-4">
           <p>
-            Don't have an account?
-            <Link href={"/signup"} className="text-blue-600 hover:text-blue-600">  Sign Up</Link>
+            Don&apos;t have an account?{' '}
+            <Link href={"/signup"} className="text-blue-600 hover:text-blue-600">Sign Up</Link>
           </p>
         </div>
       </div>
