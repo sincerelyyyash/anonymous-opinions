@@ -1,8 +1,5 @@
 'use client'
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Autoplay from 'embla-carousel-autoplay';
@@ -22,10 +19,12 @@ export default function Home() {
 
       <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen">
         <section className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-5xl font-bold">
+          <h1 className="mt-20 md:mt-0 text-4xl md:text-7xl 
+            font-bold bg-clip-text text-transparent 
+            bg-gradient-to-b from-neutral-50 to-neutral-400">
             Dive into the World of Anonymous opinions
           </h1>
-          <p className="mt-3 md:mt-4 text-base md:text-lg">
+          <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto">
             Anonymous opinions - Where your identity remains a secret.
           </p>
         </section>
