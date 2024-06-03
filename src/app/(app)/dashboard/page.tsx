@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       <div className="mb-4">
         <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>{" "}
-        <div className="flex items-center">
+        <div className="flex items-center border">
           <input
             type="text"
             value={profileUrl}
