@@ -71,7 +71,7 @@ const Dashboard = () => {
 
         toast({
           title:
-            axiosError.response?.data.message || "Failed to fetch message settings",
+            axiosError.response?.data.message || "Failed to fetch messages",
           variant: "destructive",
         });
       } finally {
