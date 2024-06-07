@@ -1,5 +1,4 @@
 "use client";
-
 import MessageCard from "@/components/MessageCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -34,6 +33,7 @@ const Dashboard = () => {
   const { register, watch, setValue } = form;
   const acceptMessages = watch("acceptMessages");
 
+
   const fetchAcceptMessage = useCallback(async () => {
     setIsSwitchLoading(true);
     try {
@@ -59,7 +59,7 @@ const Dashboard = () => {
       try {
         const response = await axios.get<ApiResponse>("/api/get-messages");
         setMessages(response.data.messages || []);
-
+        console.log(response)
         if (refresh) {
           toast({
             title: "Refreshed Messages",
@@ -81,6 +81,8 @@ const Dashboard = () => {
     },
     [setIsLoading, setMessages, toast]
   );
+
+
 
   useEffect(() => {
     if (!session || !session.user) return;
