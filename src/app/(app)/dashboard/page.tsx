@@ -33,7 +33,6 @@ const Dashboard = () => {
   const { register, watch, setValue } = form;
   const acceptMessages = watch("acceptMessages");
 
-
   const fetchAcceptMessage = useCallback(async () => {
     setIsSwitchLoading(true);
     try {
@@ -81,8 +80,6 @@ const Dashboard = () => {
     },
     [setIsLoading, setMessages, toast]
   );
-
-
 
   useEffect(() => {
     if (!session || !session.user) return;
