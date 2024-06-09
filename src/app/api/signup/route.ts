@@ -11,7 +11,6 @@ export async function POST(request: Request) {
     const { username, email, password } = await request.json()
     const existingUsernameVerifiedUser = await UserModel.findOne({
       username,
-      isVerified: true
     })
 
     if (existingUsernameVerifiedUser) {
@@ -25,7 +24,6 @@ export async function POST(request: Request) {
 
     const existingEmailVerifiedUser = await UserModel.findOne({ email })
 
-    const verifyCode = Math.floor(100000 + Math.random() * 900000).toString()
 
     if (existingEmailVerifiedUser) {
       if (existingEmailVerifiedUser.isVerified) {
@@ -36,21 +34,15 @@ export async function POST(request: Request) {
       } else {
         const hashedPassword = await bcrypt.hash(password, 10)
         existingEmailVerifiedUser.password = hashedPassword;
-        existingEmailVerifiedUser.verifyCode = verifyCode;
-        existingEmailVerifiedUser.verifyCodeExpiry = new Date(Date.now() + 360000)
         await existingEmailVerifiedUser.save()
       }
     } else {
       const hashedPassword = await bcrypt.hash(password, 10)
-      const expiryDate = new Date()
-      expiryDate.setHours(expiryDate.getHours() + 1)
 
       const newUser = new UserModel({
         username,
         email,
         password: hashedPassword,
-        verifyCode,
-        verifyCodeExpiry: expiryDate,
         isVerified: true,
         isAcceptingMessage: true,
         message: []
@@ -59,22 +51,9 @@ export async function POST(request: Request) {
       await newUser.save()
     }
 
-    const emailResponse = await sendVerificationEmail(
-      email,
-      username,
-      verifyCode
-    )
-
-    if (!emailResponse.success) {
-      return Response.json({
-        success: false,
-        message: emailResponse.message
-      }, { status: 500 })
-    }
-
     return Response.json({
       success: true,
-      message: "User registered succesfully, please verify your email"
+      message: "User registered succesfully"
     }, { status: 201 })
 
   } catch (error) {
