@@ -29,7 +29,6 @@ export async function GET(request: Request) {
       { $group: { _id: '$_id', message: { $push: '$message' } } }
     ]).exec();
 
-    console.log("User-messages:" + userMessages)
 
     if (!userMessages || userMessages.length === 0) {
       return NextResponse.json({
@@ -40,7 +39,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       success: true,
-      messages: userMessages[0].messages
+      messages: userMessages
     }, { status: 200 });
 
   } catch (error) {
