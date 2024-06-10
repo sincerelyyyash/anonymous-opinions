@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/user.model";
 import { User } from 'next-auth';
@@ -6,7 +6,7 @@ import { authOptions } from "../auth/[...nextauth]/options";
 import mongoose from "mongoose";
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request: Request) {
   await dbConnect();
 
   const session = await getServerSession(authOptions);
@@ -19,15 +19,17 @@ export async function GET() {
   }
 
   const user: User = session.user as User;
-  const userId = new mongoose.Types.ObjectId(user.id);
+  const userId = new mongoose.Types.ObjectId(user._id);
 
   try {
     const userMessages = await UserModel.aggregate([
       { $match: { _id: userId } },
-      { $unwind: '$messages' },
-      { $sort: { 'messages.createdAt': -1 } },
-      { $group: { _id: '$_id', messages: { $push: '$messages' } } }
-    ]);
+      { $unwind: { path: '$message', preserveNullAndEmptyArrays: true } },
+      { $sort: { 'message.createdAt': -1 } },
+      { $group: { _id: '$_id', message: { $push: '$message' } } }
+    ]).exec();
+
+    console.log("User-messages:" + userMessages)
 
     if (!userMessages || userMessages.length === 0) {
       return NextResponse.json({
