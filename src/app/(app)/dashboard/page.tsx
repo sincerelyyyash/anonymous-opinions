@@ -40,10 +40,8 @@ const Dashboard = () => {
       setValue("acceptMessages", response.data.isAcceptingMessage);
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-
       toast({
-        title:
-          axiosError.response?.data.message || "Failed to fetch message settings",
+        title: axiosError.response?.data.message || "Failed to fetch message settings",
         variant: "destructive",
       });
     } finally {
@@ -57,7 +55,7 @@ const Dashboard = () => {
       setIsSwitchLoading(false);
       try {
         const response = await axios.get<ApiResponse>("/api/get-messages");
-        const fetchedMessages = response.data.messages[0]?.message || [];
+        const fetchedMessages = response.data?.messages?.[0]?.message || [];
         setMessages(fetchedMessages);
         if (refresh) {
           toast({
@@ -67,10 +65,8 @@ const Dashboard = () => {
         }
       } catch (error) {
         const axiosError = error as AxiosError<ApiResponse>;
-
         toast({
-          title:
-            axiosError.response?.data.message || "Failed to fetch messages",
+          title: axiosError.response?.data.message || "Failed to fetch messages",
           variant: "destructive",
         });
       } finally {
@@ -99,10 +95,8 @@ const Dashboard = () => {
       });
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-
       toast({
-        title:
-          axiosError.response?.data.message || "Failed to update message settings",
+        title: axiosError.response?.data.message || "Failed to update message settings",
         variant: "destructive",
       });
     }
