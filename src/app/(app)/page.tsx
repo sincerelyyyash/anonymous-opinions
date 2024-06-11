@@ -11,6 +11,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -28,7 +29,6 @@ export default function Home() {
             Anonymous opinions - Where your identity remains a secret.
           </p>
         </section>
-
         {/* Carousel for Messages */}
         <Carousel
           plugins={[Autoplay({ delay: 2000 })]}
