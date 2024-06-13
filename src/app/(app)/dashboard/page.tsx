@@ -54,7 +54,7 @@ const Dashboard = () => {
       setIsLoading(true);
       setIsSwitchLoading(false);
       try {
-        const response = await axios.get<ApiResponse>("/api/get-messages");
+        const response = await axios.get("/api/get-messages");
         const fetchedMessages = response.data?.messages?.[0]?.message || [];
         setMessages(fetchedMessages);
         if (refresh) {
