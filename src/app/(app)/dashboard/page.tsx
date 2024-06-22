@@ -103,7 +103,16 @@ const Dashboard = () => {
   };
 
   if (!session || !session.user) {
-    return <div>Please Login</div>;
+    return <div className="flex justify-center items-center mt-20 flex-col">
+      <h1 className="mt-20 md:mt-0 text-4xl md:text-4xl 
+            font-bold bg-clip-text text-transparent 
+            bg-gradient-to-b from-neutral-50 to-neutral-400">
+            Please Login 
+      </h1>
+      <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto">
+            Dive into the World of Anonymous opinions
+      </p>
+    </div>
   }
 
   const { username } = session.user;
