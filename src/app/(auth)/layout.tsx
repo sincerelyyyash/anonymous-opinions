@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Anonymous Opinions',
-  description: 'Dive into the World of Anonymous opinions',
+  title: "Anonymous Opinions",
+  description: "Send true feedback Anonymously",
 }
 
 export default function RootLayout({
