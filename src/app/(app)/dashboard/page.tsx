@@ -107,10 +107,10 @@ const Dashboard = () => {
       <h1 className="mt-20 md:mt-0 text-4xl md:text-4xl 
             font-bold bg-clip-text text-transparent 
             bg-gradient-to-b from-neutral-50 to-neutral-400">
-            Please Login 
+        Please Login
       </h1>
       <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto">
-            Dive into the World of Anonymous opinions
+        Dive into the World of Anonymous opinions
       </p>
     </div>
   }
@@ -128,7 +128,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-black/[0.96] rounded w-full max-w-6xl">
+    <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-black/[0.96] rounded w-full max-w-6xl mt-20">
       <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
 
       <div className="mb-4">

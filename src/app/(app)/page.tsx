@@ -11,12 +11,14 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import { ShootingStars } from '@/components/ui/shooting-stars';
+import { StarsBackground } from '@/components/ui/stars-background';
 
 export default function Home() {
   return (
     <>
-      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen relative z-0">
-        <section className="text-center mb-8 md:mb-12">
+      <div className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen mt-20">
+        <section className="text-center mb-8 md:mb-12 mt-20">
           <h1 className="mt-20 md:mt-0 text-4xl md:text-7xl 
             font-bold bg-clip-text text-transparent 
             bg-gradient-to-b from-neutral-50 to-neutral-400">
@@ -51,7 +53,9 @@ export default function Home() {
             ))}
           </CarouselContent>
         </Carousel>
-      </main>
+        <ShootingStars />
+        <StarsBackground />
+      </div>
       <footer className="text-center p-4 md:p-6 bg-black text-white">
         © 2023 Anonymous opinions. All rights reserved.
       </footer>

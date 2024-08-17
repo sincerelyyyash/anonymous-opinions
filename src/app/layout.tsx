@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
+import Navbar from "@/components/Navbar";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 
@@ -10,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Anonymous Opinions",
-  description: "Send true feedback Anonymously",
+  description: "Share your anonymous feedback.",
 };
 
 export default function RootLayout({
@@ -20,14 +21,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AuthProvider>
-        <body className={inter.className}>
-          {children}
-          <Toaster />
-          <ShootingStars className="absolute inset-0 z-0" />
-          <StarsBackground className="absolute inset-0 z-0" />
-        </body>
-      </AuthProvider>
+      <body className={inter.className}>
+        <AuthProvider>
+          <div className=" max-h-screen">
+            <Navbar />
+            <main className="relative z-20">
+              {children}
+              <Toaster />
+            </main>
+          </div>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
