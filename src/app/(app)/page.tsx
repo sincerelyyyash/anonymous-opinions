@@ -11,14 +11,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-      {/* Main content */}
-
-      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen">
+      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black/[0.96] text-white w-full h-screen relative z-0">
         <section className="text-center mb-8 md:mb-12">
           <h1 className="mt-20 md:mt-0 text-4xl md:text-7xl 
             font-bold bg-clip-text text-transparent 
@@ -29,7 +26,6 @@ export default function Home() {
             Anonymous opinions - Where your identity remains a secret.
           </p>
         </section>
-        {/* Carousel for Messages */}
         <Carousel
           plugins={[Autoplay({ delay: 2000 })]}
           className="w-full max-w-lg md:max-w-xl"
@@ -56,8 +52,6 @@ export default function Home() {
           </CarouselContent>
         </Carousel>
       </main>
-
-
       <footer className="text-center p-4 md:p-6 bg-black text-white">
         © 2023 Anonymous opinions. All rights reserved.
       </footer>
