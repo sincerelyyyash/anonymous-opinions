@@ -6,6 +6,7 @@ import './globals.css';
 import Navbar from "@/components/Navbar";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
               {children}
               <Toaster />
             </main>
+            <Footer />
           </div>
         </AuthProvider>
       </body>
